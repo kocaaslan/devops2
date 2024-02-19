@@ -1,0 +1,156 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  annotations:
+    field.cattle.io/description: github baglantı
+  creationTimestamp: '2024-02-19T20:10:00Z'
+  generation: 2
+  managedFields:
+    - apiVersion: fleet.cattle.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:field.cattle.io/description: {}
+        f:spec:
+          .: {}
+          f:branch: {}
+          f:correctDrift:
+            .: {}
+            f:enabled: {}
+          f:insecureSkipTLSVerify: {}
+          f:keepResources: {}
+          f:paths: {}
+          f:repo: {}
+          f:targets: {}
+      manager: rancher
+      operation: Update
+      time: '2024-02-19T20:11:13Z'
+    - apiVersion: fleet.cattle.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:commit: {}
+          f:conditions: {}
+          f:desiredReadyClusters: {}
+          f:display:
+            .: {}
+            f:error: {}
+            f:message: {}
+            f:readyBundleDeployments: {}
+            f:state: {}
+          f:gitJobStatus: {}
+          f:lastSyncedImageScanTime: {}
+          f:observedGeneration: {}
+          f:readyClusters: {}
+          f:resourceCounts:
+            .: {}
+            f:desiredReady: {}
+            f:missing: {}
+            f:modified: {}
+            f:notReady: {}
+            f:orphaned: {}
+            f:ready: {}
+            f:unknown: {}
+            f:waitApplied: {}
+          f:resources: {}
+          f:summary:
+            .: {}
+            f:desiredReady: {}
+            f:errApplied: {}
+            f:nonReadyResources: {}
+            f:ready: {}
+      manager: fleetcontroller
+      operation: Update
+      subresource: status
+      time: '2024-02-19T20:13:16Z'
+  name: gitrepom
+  namespace: fleet-default
+  resourceVersion: '1675869'
+  uid: f1a4e65d-1da8-4cbb-8b24-7ff587b3c7c6
+spec:
+  branch: main
+  correctDrift:
+    enabled: false
+  insecureSkipTLSVerify: false
+  keepResources: false
+  paths: []
+  repo: https://github.com/kocaaslan/devops2.git
+  targets:
+    - clusterName: nurullahkocaaslan1
+status:
+  commit: 01dd3bfd0565fe5413a7fadcfc036f442551840b
+  conditions:
+    - lastUpdateTime: '2024-02-19T20:10:04Z'
+      message: >-
+        ErrApplied(1) [Bundle gitrepom: unable to build kubernetes objects from
+        release manifest: resource mapping not found for name:
+        "nurullahkocaaslan" namespace: "fleet-default" from "": no matches for
+        kind "Cluster" in version "provisioning.cattle.io/v1"
+
+        ensure CRDs are installed first]
+      status: 'False'
+      type: Ready
+    - lastUpdateTime: '2024-02-19T20:13:16Z'
+      status: 'True'
+      type: Accepted
+    - lastUpdateTime: '2024-02-19T20:10:00Z'
+      status: 'True'
+      type: ImageSynced
+    - lastUpdateTime: '2024-02-19T20:11:13Z'
+      status: 'False'
+      type: Reconciling
+    - lastUpdateTime: '2024-02-19T20:10:01Z'
+      status: 'False'
+      type: Stalled
+    - lastUpdateTime: '2024-02-19T20:13:16Z'
+      status: 'True'
+      type: Synced
+  desiredReadyClusters: 1
+  display:
+    error: true
+    message: >-
+      unable to build kubernetes objects from release manifest: resource mapping
+      not found for name: "nurullahkocaaslan" namespace: "fleet-default" from
+      "": no matches for kind "Cluster" in version "provisioning.cattle.io/v1"
+
+      ensure CRDs are installed first
+    readyBundleDeployments: 0/1
+    state: ErrApplied
+  gitJobStatus: Current
+  lastSyncedImageScanTime: null
+  observedGeneration: 2
+  readyClusters: 0
+  resourceCounts:
+    desiredReady: 1
+    missing: 0
+    modified: 0
+    notReady: 1
+    orphaned: 0
+    ready: 0
+    unknown: 0
+    waitApplied: 0
+  resources:
+    - apiVersion: provisioning.cattle.io/v1
+      id: fleet-default/nurullahkocaaslan
+      kind: Cluster
+      name: nurullahkocaaslan
+      namespace: fleet-default
+      state: ErrApplied
+      type: provisioning.cattle.io.cluster
+  summary:
+    desiredReady: 1
+    errApplied: 1
+    nonReadyResources:
+      - bundleState: ErrApplied
+        message: >-
+          unable to build kubernetes objects from release manifest: resource
+          mapping not found for name: "nurullahkocaaslan" namespace:
+          "fleet-default" from "": no matches for kind "Cluster" in version
+          "provisioning.cattle.io/v1"
+
+          ensure CRDs are installed first
+        name: gitrepom
+    ready: 0
