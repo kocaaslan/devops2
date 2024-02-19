@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx   # Yukarıdaki Deployment'ın etiketini seçer.
+  ports:
+    - protocol: TCP
+      port: 80     # Servisin dışında hangi porttan erişileceğini belirtir.
+      targetPort: 80  # Pod'ların içindeki Nginx'e yönlenecek port.
+  type: NodePort   # NodePort tipinde bir servis tanımlar.
