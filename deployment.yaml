@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3   # Kaç adet pod çalıştırılacağını belirtir.
+  selector:
+    matchLabels:
+      app: nginx   # Pod'ları seçmek için kullanılacak etiket.
+  template:
+    metadata:
+      labels:
+        app: nginx   # Bu pod'un etiketi.
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest   # Nginx'in kullanılacak Docker imajı.
+        ports:
+        - containerPort: 80   # Pod içindeki Nginx'in dinlediği port.
